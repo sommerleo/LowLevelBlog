@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsletter e Contato — LowLevelBlog</title>
+  <meta name="description" content="Assine a newsletter do LowLevelBlog ou envie uma mensagem para a redação.">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+      <div class="container">
+        <a class="navbar-brand logo" href="index.html">&lt;LowLevel<span>Blog</span>/&gt;</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal"
+                aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu-principal">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="artigos.html">Artigos</a></li>
+            <li class="nav-item"><a class="nav-link" href="categorias.html">Categorias</a></li>
+            <li class="nav-item"><a class="nav-link" href="ferramentas.html">Ferramentas</a></li>
+            <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="topo-pagina">
+      <div class="container">
+        <h1>Newsletter e contato</h1>
+        <p class="lead">
+          Receba os novos artigos por e-mail ou mande sua dúvida, sugestão de pauta ou correção.
+        </p>
+      </div>
+    </section>
+
+    <div class="secao container">
+
+      <div class="grade-formularios">
+
+        <section class="formulario">
+          <h2>Assine a newsletter</h2>
+          <p class="texto-formulario">Um e-mail sempre que sair artigo novo. Sem spam.</p>
+
+          <form action="#" method="post">
+            <div class="mb-3">
+              <label for="news-nome" class="form-label">Nome</label>
+              <input type="text" class="form-control" id="news-nome" name="nome" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="news-email" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="news-email" name="email" placeholder="voce@exemplo.com" required>
+            </div>
+
+            <fieldset class="mb-3">
+              <legend class="form-label">Temas de interesse</legend>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="news-stm32" name="temas" value="stm32">
+                <label class="form-check-label" for="news-stm32">STM32</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="news-c" name="temas" value="linguagem-c">
+                <label class="form-check-label" for="news-c">Linguagem C</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="news-iot" name="temas" value="iot">
+                <label class="form-check-label" for="news-iot">IoT</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="news-componentes" name="temas" value="componentes">
+                <label class="form-check-label" for="news-componentes">Componentes</label>
+              </div>
+            </fieldset>
+
+            <button type="submit" class="btn btn-destaque">Inscrever-se</button>
+          </form>
+        </section>
+
+        <section class="formulario">
+          <h2>Fale com a redação</h2>
+          <p class="texto-formulario">Respondemos por e-mail assim que possível.</p>
+
+          <form action="#" method="post">
+            <div class="mb-3">
+              <label for="contato-nome" class="form-label">Nome</label>
+              <input type="text" class="form-control" id="contato-nome" name="nome" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="contato-email" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="contato-email" name="email" placeholder="voce@exemplo.com" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="contato-assunto" class="form-label">Assunto</label>
+              <select class="form-select" id="contato-assunto" name="assunto" required>
+                <option value="">Selecione...</option>
+                <option value="duvida">Dúvida sobre um artigo</option>
+                <option value="pauta">Sugestão de pauta</option>
+                <option value="correcao">Correção</option>
+                <option value="outro">Outro assunto</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="contato-mensagem" class="form-label">Mensagem</label>
+              <textarea class="form-control" id="contato-mensagem" name="mensagem" rows="6" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-destaque">Enviar mensagem</button>
+          </form>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>&copy; 2026 LowLevelBlog — Hygo Rissi e Léo Sommer</p>
+      <p>Trabalho da disciplina de Programação Web — FTEC</p>
+      <p>
+        <a href="https://github.com/sommerleo/LowLevelBlog" target="_blank" rel="noopener">GitHub do projeto</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

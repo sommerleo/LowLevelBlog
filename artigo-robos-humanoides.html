@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robôs humanoides — LowLevelBlog</title>
+    <meta name="description" content="Por que os robôs humanoides estão chegando às fábricas e quais sensores, motores e circuitos de energia existem dentro deles.">
+
+    <!-- bootstrap e depois o css do site -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- menu, igual nas outras páginas -->
+    <header class="cabecalho">
+        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+            <div class="container">
+                <a class="navbar-brand logo" href="index.html">&lt;LowLevel<span>Blog</span>/&gt;</a>
+
+                <!-- botão que abre o menu no celular -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal"
+                        aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu-principal">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="artigos.html">Artigos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="categorias.html">Categorias</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ferramentas.html">Ferramentas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+
+            <!-- topo do artigo -->
+            <header class="topo-pagina">
+                <div class="container container-artigo">
+                    <span class="categoria">Componentes</span>
+                    <h1>Robôs humanoides: a inteligência começa nos sensores</h1>
+                    <p class="lead">
+                        Os humanoides estão saindo dos laboratórios e entrando nas fábricas. Segundo a STMicroelectronics,
+                        o que vai decidir essa corrida está "abaixo do cérebro": sensores, controle de motores e energia.
+                    </p>
+                    <p class="artigo-meta">Fonte: The ST Blog, 28/08/2026</p>
+                </div>
+            </header>
+
+            <!-- texto do artigo -->
+            <div class="container container-artigo corpo-artigo">
+
+                <figure class="artigo-figura">
+                    <img src="img/artigos/humanoides-capa.jpg"
+                         alt="Robô humanoide prateado em pé, ao lado de imagens de uma mão robótica e da cabeça de outro robô">
+                    <figcaption>Imagem: STMicroelectronics / The ST Blog.</figcaption>
+                </figure>
+
+                <section>
+                    <h2>O que é IA física</h2>
+                    <p>
+                        A chamada <strong>IA física</strong> é a inteligência artificial embarcada em máquinas que
+                        percebem o ambiente, decidem e agem no mundo real. Diferente de um modelo de linguagem rodando
+                        num data center, ela tem limites rígidos: precisa reagir em milissegundos e com pouca energia
+                        disponível.
+                    </p>
+                    <p>
+                        O robô humanoide é o caso mais exigente: ele precisa se equilibrar em duas pernas, segurar
+                        objetos feitos para mãos humanas e dividir o espaço com pessoas sem colocá-las em risco.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Por que construir robôs com forma humana?</h2>
+                    <ul>
+                        <li><strong>O mundo já é feito para humanos.</strong> Um robô com nossas proporções trabalha em fábricas e armazéns sem que eles precisem ser reformados.</li>
+                        <li><strong>Falta mão de obra.</strong> Só nos Estados Unidos, a indústria pode precisar de 3,8 milhões de trabalhadores até 2033, e cerca de metade dessas vagas pode ficar sem ser preenchida (Deloitte e The Manufacturing Institute).</li>
+                        <li><strong>Ele troca de tarefa.</strong> Um robô industrial comum é comprado para uma única tarefa; um humanoide pode assumir uma função inteira.</li>
+                    </ul>
+
+                    <figure class="artigo-figura">
+                        <img src="img/artigos/humanoides-previsao-mercado.jpg"
+                             alt="Infográfico com o texto: 38 bilhões de dólares até 2035, a previsão do mercado de humanoides">
+                        <figcaption>Previsão de US$ 38 bilhões para o mercado de humanoides até 2035 (Goldman Sachs Research). Imagem: STMicroelectronics / The ST Blog.</figcaption>
+                    </figure>
+                </section>
+
+                <section>
+                    <h2>Onde eles já estão trabalhando</h2>
+                    <ul>
+                        <li>O <strong>Digit</strong>, da Agility Robotics, movimenta caixas em um centro logístico da GXO nos EUA.</li>
+                        <li>Robôs da <strong>Figure</strong> passaram por um piloto de dez meses na fábrica da BMW em Spartanburg.</li>
+                        <li>A Hyundai apresentou na CES 2026 a versão de produção do <strong>Atlas</strong>, da Boston Dynamics.</li>
+                        <li>A chinesa <strong>Unitree</strong> informou ter vendido 5.500 humanoides em 2025.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>O que existe dentro de um humanoide</h2>
+                    <p>A ST divide o robô em blocos. Os quatro principais são:</p>
+                    <div class="table-responsive">
+                        <table class="table tabela-artigo">
+                            <thead>
+                                <tr>
+                                    <th>Bloco</th>
+                                    <th>Desafio</th>
+                                    <th>Componentes envolvidos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Percepção</td><td>Entender o ambiente em 3D, em tempo real</td><td>Sensores de imagem, sensores de distância (time-of-flight) e IMUs</td></tr>
+                                <tr><td>Equilíbrio</td><td>Não cair: o robô nunca está parado de forma estável</td><td>Sensores inerciais com aprendizado de máquina dentro do próprio sensor</td></tr>
+                                <tr><td>Movimento</td><td>Dezenas de articulações, dos ombros aos dedos</td><td>Um driver de motor e um controlador para cada articulação</td></tr>
+                                <tr><td>Energia</td><td>Fazer tudo isso funcionar com bateria</td><td>Semicondutores de nitreto de gálio (GaN), menores e mais eficientes</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>
+                        O equilíbrio é um bom exemplo. O sensor inercial funciona como o "ouvido interno" do robô, e o
+                        primeiro nível de reconhecimento de movimento já acontece dentro dele, em microssegundos,
+                        antes mesmo de o processador principal entrar em ação.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Segurança vem de fábrica</h2>
+                    <p>
+                        Para conviver com pessoas, o robô precisa ser confiável, e isso não pode ser adicionado no fim
+                        do projeto. A segurança física (<em>safety</em>) e a segurança digital (<em>security</em>) andam
+                        juntas: um software invadido transforma uma máquina física em um risco físico.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Onde entram os semicondutores</h2>
+                    <p>
+                        A ST estima cerca de <strong>US$ 600 em semicondutores</strong> em cada humanoide, divididos
+                        entre sensores, controle, acionamento, comunicação e energia. Um exemplo é a mão robótica
+                        desenvolvida com a Ruiyan Intelligent Control: todo o controle cabe numa placa do tamanho da palma,
+                        com um microcontrolador coordenando cinco articulações e seis graus de liberdade.
+                    </p>
+                    <p>
+                        Para quem estuda embarcados, a mensagem é clara: por trás da IA de um humanoide existem
+                        microcontroladores, sensores, drivers de motor e fontes de alimentação, os mesmos assuntos
+                        que estudamos na bancada.
+                    </p>
+                </section>
+
+                <!-- fontes usadas -->
+                <footer class="artigo-fontes">
+                    <h2>Fontes</h2>
+                    <ul>
+                        <li>
+                            Artigo original:
+                            <a href="https://blog.st.com/humanoid-robots-building-a-workforce/" target="_blank" rel="noopener">Humanoid robots: automation built from the sensors up</a>,
+                            publicado no The ST Blog (STMicroelectronics) em 28/08/2026, em inglês.
+                        </li>
+                        <li>Imagens: STMicroelectronics / The ST Blog, reproduzidas do artigo original.</li>
+                    </ul>
+                    <p>Texto escrito pelo LowLevelBlog como resumo, tradução e adaptação do artigo original.</p>
+                </footer>
+
+                <p><a href="artigos.html" class="link-leia-mais">&larr; Voltar para os artigos</a></p>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- rodapé -->
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 LowLevelBlog — Hygo Rissi e Léo Sommer</p>
+            <p>Trabalho da disciplina de Programação Web — FTEC</p>
+            <p>
+                <a href="https://github.com/sommerleo/LowLevelBlog" target="_blank" rel="noopener">GitHub do projeto</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- js do bootstrap, só pro menu -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

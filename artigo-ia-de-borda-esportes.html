@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA de borda e sensores no esporte — LowLevelBlog</title>
+    <meta name="description" content="Como wearables com IA de borda e sensores inerciais analisam o desempenho de atletas em tempo real, direto no campo.">
+
+    <!-- bootstrap e depois o css do site -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- menu, igual nas outras páginas -->
+    <header class="cabecalho">
+        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+            <div class="container">
+                <a class="navbar-brand logo" href="index.html">&lt;LowLevel<span>Blog</span>/&gt;</a>
+
+                <!-- botão que abre o menu no celular -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal"
+                        aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu-principal">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="artigos.html">Artigos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="categorias.html">Categorias</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ferramentas.html">Ferramentas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+
+            <!-- topo do artigo -->
+            <header class="topo-pagina">
+                <div class="container container-artigo">
+                    <span class="categoria">IoT</span>
+                    <h1>IA de borda e sensores no esporte</h1>
+                    <p class="lead">
+                        Wearables com sensores e inteligência artificial embarcada já analisam o desempenho de atletas
+                        em tempo real, direto no campo, sem esperar pela nuvem.
+                    </p>
+                    <p class="artigo-meta">Fonte: Embarcados / Mouser Electronics, 24/09/2026</p>
+                </div>
+            </header>
+
+            <!-- texto do artigo -->
+            <div class="container container-artigo corpo-artigo">
+
+                <figure class="artigo-figura">
+                    <img src="img/artigos/ia-esportes-capa.png"
+                         alt="Jogador de futebol cercado por ícones digitais de batimentos cardíacos, cronômetro e uma bola, com o título Edge AI and Sensors Boost Athletic Performance">
+                    <figcaption>Imagem: Mouser Electronics / Embarcados.</figcaption>
+                </figure>
+
+                <section>
+                    <h2>O que é IA de borda</h2>
+                    <p>
+                        Na <strong>IA de borda</strong> (<em>edge AI</em>), os dados são processados no próprio
+                        dispositivo, perto de onde são coletados, em vez de serem enviados para um servidor na nuvem.
+                        O resultado é uma resposta muito mais rápida e que não depende de conexão com a internet, algo
+                        essencial à beira de um campo de futebol.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Do dado bruto à decisão</h2>
+                    <p>
+                        Os wearables coletam dados físicos e biomecânicos do atleta, como aceleração, velocidade,
+                        fadiga muscular e frequência cardíaca. Modelos de aprendizado de máquina analisam esses dados
+                        na hora e identificam padrões de resistência, risco de lesão e movimentos ineficientes.
+                    </p>
+                    <p>
+                        Com isso, a comissão técnica pode ajustar a carga de treino e a recuperação de cada jogador.
+                        Há motivo financeiro também: nas cinco maiores ligas de futebol da Europa, o custo com lesões
+                        subiu cerca de 30%, de €&nbsp;553,62 milhões para €&nbsp;704,89 milhões.
+                    </p>
+                    <p>
+                        Um exemplo real é o rastreador <strong>STATSports Apex</strong>, usado por clubes da Premier
+                        League. Ele usa o chip <strong>nRF52840</strong>, da Nordic Semiconductor, com sensores inerciais
+                        e Bluetooth Low Energy para processar os movimentos no próprio dispositivo.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>O sensor: LSM6DSV320X, da ST</h2>
+                    <p>
+                        O artigo destaca a <strong>IMU</strong> (unidade de medição inercial) LSM6DSV320X, da
+                        STMicroelectronics, pensada para esportes de alto impacto. Em um único chip ela reúne:
+                    </p>
+
+                    <figure class="artigo-figura artigo-figura-pequena">
+                        <img src="img/artigos/ia-esportes-imu.png"
+                             alt="Chip LSM6DSV320X da STMicroelectronics em encapsulamento quadrado preto, com os contatos visíveis na parte de baixo">
+                        <figcaption>IMU LSM6DSV320X. Imagem: Mouser Electronics.</figcaption>
+                    </figure>
+
+                    <ul>
+                        <li>Acelerômetro de 3 eixos para movimentos normais (<em>low-g</em>);</li>
+                        <li>Acelerômetro de 3 eixos para impactos fortes, de até ±320&nbsp;g (<em>high-g</em>);</li>
+                        <li>Giroscópio de 3 eixos;</li>
+                        <li>Núcleo de aprendizado de máquina (MLC) e máquina de estados finitos (FSM), que reconhecem movimentos dentro do próprio sensor;</li>
+                        <li>Autoconfiguração adaptativa (ASC), que ajusta o sensor sozinho conforme a situação;</li>
+                        <li>Memória FIFO de 4,5&nbsp;KB e algoritmos de fusão de sensores embutidos.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Por que processar dentro do sensor?</h2>
+                    <p>
+                        Quando o próprio sensor reconhece o movimento, o microcontrolador não precisa ler e analisar
+                        cada amostra. Ele pode ficar em modo de baixo consumo e só "acordar" quando algo importante
+                        acontece. Em um wearable, isso significa mais horas de bateria, e é a mesma ideia que se usa em
+                        qualquer projeto de IoT alimentado por bateria.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Conclusão</h2>
+                    <p>
+                        A combinação de sensores MEMS e IA de borda muda a forma de acompanhar atletas: em vez de só
+                        reagir a lesões e quedas de rendimento, a análise passa a ser preditiva, preventiva e
+                        personalizada para cada jogador.
+                    </p>
+                </section>
+
+                <!-- fontes usadas -->
+                <footer class="artigo-fontes">
+                    <h2>Fontes</h2>
+                    <ul>
+                        <li>
+                            Artigo original:
+                            <a href="https://embarcados.com.br/ia-de-borda-e-sensores-impulsionam-o-desempenho-atletico/" target="_blank" rel="noopener">IA de Borda e Sensores Impulsionam o Desempenho Atlético</a>,
+                            de Mouser Electronics, publicado no Embarcados em 24/09/2026.
+                        </li>
+                        <li>Imagens: Mouser Electronics / Embarcados, reproduzidas do artigo original.</li>
+                    </ul>
+                    <p>Texto escrito pelo LowLevelBlog como resumo e adaptação do artigo original.</p>
+                </footer>
+
+                <p><a href="artigos.html" class="link-leia-mais">&larr; Voltar para os artigos</a></p>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- rodapé -->
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 LowLevelBlog — Hygo Rissi e Léo Sommer</p>
+            <p>Trabalho da disciplina de Programação Web — FTEC</p>
+            <p>
+                <a href="https://github.com/sommerleo/LowLevelBlog" target="_blank" rel="noopener">GitHub do projeto</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- js do bootstrap, só pro menu -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

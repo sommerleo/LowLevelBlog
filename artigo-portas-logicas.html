@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portas lógicas com transistores — LowLevelBlog</title>
+    <meta name="description" content="Como montar as portas AND, OR, NOT, NAND e NOR usando apenas transistores BC547, resistores e botões.">
+
+    <!-- bootstrap e depois o css do site -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- menu, igual nas outras páginas -->
+    <header class="cabecalho">
+        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+            <div class="container">
+                <a class="navbar-brand logo" href="index.html">&lt;LowLevel<span>Blog</span>/&gt;</a>
+
+                <!-- botão que abre o menu no celular -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal"
+                        aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu-principal">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="artigos.html">Artigos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="categorias.html">Categorias</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ferramentas.html">Ferramentas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+
+            <!-- topo do artigo -->
+            <header class="topo-pagina">
+                <div class="container container-artigo">
+                    <span class="categoria">Componentes</span>
+                    <h1>Portas lógicas com transistores: o que existe dentro de um CI</h1>
+                    <p class="lead">
+                        Toda porta lógica, do 74HC08 ao núcleo de um microcontrolador, é feita de transistores.
+                        Veja como montar AND, OR, NOT, NAND e NOR usando só transistores BC547, resistores e botões.
+                    </p>
+                    <p class="artigo-meta">Fonte: Embarcados, 24/07/2026</p>
+                </div>
+            </header>
+
+            <!-- texto do artigo -->
+            <div class="container container-artigo corpo-artigo">
+
+                <figure class="artigo-figura">
+                    <img src="img/artigos/portas-logicas-capa.png"
+                         alt="Protoboard com um transistor BC547, resistores, um botão e um LED montados como porta lógica">
+                    <figcaption>Porta lógica montada em protoboard com transistor BC547. Imagem: Thales Ruano / Embarcados.</figcaption>
+                </figure>
+
+                <section>
+                    <h2>O transistor como chave</h2>
+                    <p>
+                        Em circuitos analógicos, o transistor costuma ser usado como amplificador. Na eletrônica digital,
+                        ele trabalha em apenas dois estados, como se fosse um interruptor:
+                    </p>
+                    <ul>
+                        <li><strong>Corte (nível lógico 0):</strong> não há corrente na base, então o caminho entre coletor e emissor fica aberto.</li>
+                        <li><strong>Saturação (nível lógico 1):</strong> a corrente na base é suficiente para o transistor conduzir totalmente, como uma chave fechada.</li>
+                    </ul>
+                    <p>
+                        Em todos os circuitos do artigo, cada entrada é um botão que alimenta a base do transistor por um
+                        resistor de 10&nbsp;kΩ. Botão solto é 0; botão pressionado é 1. A saída é indicada por um LED.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Material usado</h2>
+                    <ul>
+                        <li>Transistores NPN BC547;</li>
+                        <li>Resistores de 220&nbsp;Ω, 330&nbsp;Ω, 4,7&nbsp;kΩ e 10&nbsp;kΩ;</li>
+                        <li>Botões (push-buttons) para as entradas;</li>
+                        <li>LED vermelho para a saída;</li>
+                        <li>Fonte de 9&nbsp;V.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Em série é AND, em paralelo é OR</h2>
+                    <p>
+                        Na <strong>porta AND</strong>, dois transistores ficam em série: a corrente só chega ao LED se
+                        os dois estiverem saturados ao mesmo tempo, ou seja, com os dois botões pressionados.
+                    </p>
+                    <p>
+                        Na <strong>porta OR</strong>, os transistores ficam em paralelo: basta um deles conduzir para
+                        o LED acender.
+                    </p>
+
+                    <figure class="artigo-figura artigo-figura-media">
+                        <img src="img/artigos/portas-logicas-and-esquematico.png"
+                             alt="Esquemático da porta AND: dois transistores BC547 em série, cada um com um botão e um resistor de 10 kΩ na base, e o LED na saída">
+                        <figcaption>Esquemático da porta AND com dois BC547 em série. Imagem: Thales Ruano / Embarcados.</figcaption>
+                    </figure>
+                </section>
+
+                <section>
+                    <h2>Invertendo a lógica: NOT, NAND e NOR</h2>
+                    <p>
+                        Para inverter o resultado, a saída deixa de ser lida no emissor e passa a ser lida no
+                        <strong>coletor</strong>. Quando o transistor satura, o coletor vai para perto de 0&nbsp;V e o LED
+                        apaga; quando está em corte, o coletor fica em tensão alta e o LED acende.
+                    </p>
+                    <p>
+                        Com um único transistor, isso forma a <strong>porta NOT</strong>. Aplicando a mesma ideia aos
+                        circuitos em série e em paralelo, obtemos a <strong>NAND</strong> e a <strong>NOR</strong>.
+                    </p>
+
+                    <figure class="artigo-figura artigo-figura-media">
+                        <img src="img/artigos/portas-logicas-not-esquematico.png"
+                             alt="Esquemático da porta NOT: um transistor BC547 com botão na base e o LED ligado ao coletor">
+                        <figcaption>Esquemático da porta NOT, com a saída lida no coletor. Imagem: Thales Ruano / Embarcados.</figcaption>
+                    </figure>
+                </section>
+
+                <section>
+                    <h2>Resumo das cinco portas</h2>
+                    <div class="table-responsive">
+                        <table class="table tabela-artigo">
+                            <thead>
+                                <tr>
+                                    <th>Porta</th>
+                                    <th>Transistores</th>
+                                    <th>Saída lida no</th>
+                                    <th>LED acende quando</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>AND</td><td>2 em série</td><td>Emissor</td><td>Os dois botões estão pressionados</td></tr>
+                                <tr><td>OR</td><td>2 em paralelo</td><td>Emissor</td><td>Pelo menos um botão está pressionado</td></tr>
+                                <tr><td>NOT</td><td>1</td><td>Coletor</td><td>O botão está solto</td></tr>
+                                <tr><td>NAND</td><td>2 em série</td><td>Coletor</td><td>Pelo menos um botão está solto</td></tr>
+                                <tr><td>NOR</td><td>2 em paralelo</td><td>Coletor</td><td>Nenhum botão está pressionado</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Por que isso ainda importa</h2>
+                    <p>
+                        Em projetos reais, usamos circuitos integrados, porque eles colocam milhares de portas num espaço
+                        minúsculo. Mesmo assim, montar uma porta com componentes discretos ajuda a entender o que acontece
+                        dentro de um processador. E a lógica com transistores avulsos continua útil em drivers de potência,
+                        circuitos de intertravamento e condicionamento de sinais.
+                    </p>
+                </section>
+
+                <!-- fontes usadas -->
+                <footer class="artigo-fontes">
+                    <h2>Fontes</h2>
+                    <ul>
+                        <li>
+                            Artigo original:
+                            <a href="https://embarcados.com.br/alem-dos-cis-construindo-portas-logicas-com-transistores-discretos/" target="_blank" rel="noopener">Além dos CIs: Construindo Portas Lógicas com Transistores Discretos</a>,
+                            de Thales Ruano, publicado no Embarcados em 24/07/2026.
+                        </li>
+                        <li>Imagens: Thales Ruano / Embarcados, reproduzidas do artigo original.</li>
+                    </ul>
+                    <p>Texto escrito pelo LowLevelBlog como resumo e adaptação do artigo original.</p>
+                </footer>
+
+                <p><a href="artigos.html" class="link-leia-mais">&larr; Voltar para os artigos</a></p>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- rodapé -->
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 LowLevelBlog — Hygo Rissi e Léo Sommer</p>
+            <p>Trabalho da disciplina de Programação Web — FTEC</p>
+            <p>
+                <a href="https://github.com/sommerleo/LowLevelBlog" target="_blank" rel="noopener">GitHub do projeto</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- js do bootstrap, só pro menu -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

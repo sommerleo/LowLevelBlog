@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribuição inteligente de energia nos carros — LowLevelBlog</title>
+    <meta name="description" content="Como e-fuses, drivers e PMICs estão substituindo a caixa de fusíveis e mudando a distribuição de energia nos carros.">
+
+    <!-- bootstrap e depois o css do site -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- menu, igual nas outras páginas -->
+    <header class="cabecalho">
+        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+            <div class="container">
+                <a class="navbar-brand logo" href="index.html">&lt;LowLevel<span>Blog</span>/&gt;</a>
+
+                <!-- botão que abre o menu no celular -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal"
+                        aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu-principal">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="artigos.html">Artigos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="categorias.html">Categorias</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ferramentas.html">Ferramentas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+
+            <!-- topo do artigo -->
+            <header class="topo-pagina">
+                <div class="container container-artigo">
+                    <span class="categoria">Componentes</span>
+                    <h1>Distribuição inteligente de energia nos carros: adeus, caixa de fusíveis</h1>
+                    <p class="lead">
+                        Carros têm cada vez mais sensores, motores e software. Veja como e-fuses, drivers e PMICs
+                        estão mudando o caminho que a energia faz da bateria até cada parte do veículo.
+                    </p>
+                    <p class="artigo-meta">Fonte: The ST Blog, 09/09/2026</p>
+                </div>
+            </header>
+
+            <!-- texto do artigo -->
+            <div class="container container-artigo corpo-artigo">
+
+                <figure class="artigo-figura">
+                    <img src="img/artigos/energia-capa.jpg"
+                         alt="Ilustração de um carro com a carroceria transparente, mostrando o chassi, as rodas e a bateria no assoalho">
+                    <figcaption>Imagem: STMicroelectronics / The ST Blog.</figcaption>
+                </figure>
+
+                <section>
+                    <h2>Por que o problema ficou maior</h2>
+                    <p>
+                        A distribuição de energia é um desafio que atinge todo tipo de carro ao mesmo tempo: elétricos,
+                        a combustão, populares e esportivos. Os motivos principais são:
+                    </p>
+                    <ul>
+                        <li><strong>Mais consumo:</strong> cada geração traz mais sensores, motores e funções de segurança, e tudo isso gasta bateria, inclusive com o carro desligado.</li>
+                        <li><strong>Arquitetura zonal:</strong> em vez de um módulo por função, a eletrônica passa a ser agrupada por região do carro (zonas), o que muda o jeito de levar energia até cada carga.</li>
+                        <li><strong>Peso:</strong> as baterias estão mais pesadas, então é preciso economizar em outros pontos, como o tamanho dos chicotes de fios.</li>
+                        <li><strong>Novas tensões:</strong> 800&nbsp;V para recarga, 48&nbsp;V ganhando espaço e cargas antigas que ainda usam 12&nbsp;V. Isso exige conversores DC/DC de até 1&nbsp;kW só para ir de 48&nbsp;V para 12&nbsp;V.</li>
+                    </ul>
+                    <p>
+                        Nesses conversores, o <strong>nitreto de gálio (GaN)</strong> ajuda bastante: ele permite chavear
+                        em frequências mais altas, com menos perdas e componentes magnéticos menores.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>E-fuse: o fusível que se rearma</h2>
+                    <p>
+                        A peça central dessa mudança é o <strong>fusível eletrônico (e-fuse)</strong>. A família
+                        <strong>STi2Fuse</strong>, da ST, tem três vantagens sobre o fusível tradicional:
+                    </p>
+                    <ul>
+                        <li><strong>Rapidez:</strong> reage em menos de 100&nbsp;µs.</li>
+                        <li><strong>Precisão:</strong> como o corte é mais preciso, os fios podem ser mais finos e o chicote fica menor.</li>
+                        <li><strong>Rearme:</strong> depois de desarmar, o sistema pode testar o circuito de novo para ver se o problema continua.</li>
+                    </ul>
+                    <p>
+                        Por isso os e-fuses já são usados em funções críticas, como o gerenciamento de baterias de
+                        carros elétricos e os sistemas de assistência ao motorista (ADAS).
+                    </p>
+
+                    <figure class="artigo-figura">
+                        <img src="img/artigos/energia-efuse.jpg"
+                             alt="Diagrama de blocos com caixas de distribuição e zonais, cada uma com um microcontrolador ligado a e-fuses STi2Fuse que alimentam as cargas do carro">
+                        <figcaption>Cada caixa de distribuição combina um microcontrolador (MCU) com e-fuses STi2Fuse. Imagem: STMicroelectronics / The ST Blog.</figcaption>
+                    </figure>
+                </section>
+
+                <section>
+                    <h2>Outros componentes do sistema</h2>
+                    <div class="table-responsive">
+                        <table class="table tabela-artigo">
+                            <thead>
+                                <tr>
+                                    <th>Componente</th>
+                                    <th>Função</th>
+                                    <th>Exemplo da ST</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Driver high-side</td><td>Liga e desliga cargas, mede corrente e faz diagnóstico</td><td>VIPower M0-9, com ADC de 10 bits e interface SPI</td></tr>
+                                <tr><td>Driver em ponte H</td><td>Aciona motores nos dois sentidos (vidros elétricos, tampa do porta-malas)</td><td>VIPower M0-7 H-Bridge</td></tr>
+                                <tr><td>PMIC</td><td>Gera as tensões do sistema e controla os modos de baixo consumo</td><td>SPSB081, configurável por SPI para 5&nbsp;V ou 3,3&nbsp;V</td></tr>
+                                <tr><td>Microcontrolador</td><td>É o "inteligente" da distribuição inteligente: comanda e monitora tudo</td><td>SPC58G (usado na placa STEVAL-PDUBV1)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>
+                        Repare que vários desses chips são configurados por <strong>SPI</strong>, o mesmo barramento que
+                        usamos para ligar sensores e displays a um microcontrolador. A diferença é que aqui o software
+                        decide como cada carga do carro será protegida.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Placas para começar</h2>
+                    <ul>
+                        <li>
+                            <strong>STEVAL-PDUBV1:</strong> placa de referência com dois barramentos de 13 saídas cada,
+                            protegidas por STi2Fuse. Tem modo de estacionamento (baixo consumo), modo de montagem (protege
+                            quem trabalha na fábrica contra choques) e comunicação por CAN-FD e Ethernet.
+                        </li>
+                        <li>
+                            <strong>AEK-POW-PDUMINI:</strong> versão menor, usada como unidade de distribuição secundária
+                            e controlada por comandos CAN.
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- fontes usadas -->
+                <footer class="artigo-fontes">
+                    <h2>Fontes</h2>
+                    <ul>
+                        <li>
+                            Artigo original:
+                            <a href="https://blog.st.com/smart-power-distribution/" target="_blank" rel="noopener">Smart power distribution in cars, it's much more than a numbers game, it's how the future takes shape</a>,
+                            publicado no The ST Blog (STMicroelectronics) em 09/09/2026, em inglês.
+                        </li>
+                        <li>Imagens: STMicroelectronics / The ST Blog, reproduzidas do artigo original.</li>
+                    </ul>
+                    <p>Texto escrito pelo LowLevelBlog como resumo, tradução e adaptação do artigo original.</p>
+                </footer>
+
+                <p><a href="artigos.html" class="link-leia-mais">&larr; Voltar para os artigos</a></p>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- rodapé -->
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 LowLevelBlog — Hygo Rissi e Léo Sommer</p>
+            <p>Trabalho da disciplina de Programação Web — FTEC</p>
+            <p>
+                <a href="https://github.com/sommerleo/LowLevelBlog" target="_blank" rel="noopener">GitHub do projeto</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- js do bootstrap, só pro menu -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

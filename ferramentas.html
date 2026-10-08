@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ferramentas e Recursos — LowLevelBlog</title>
+  <meta name="description" content="Ferramentas online gratuitas para estudar programação em C, microcontroladores e circuitos eletrônicos.">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+      <div class="container">
+        <a class="navbar-brand logo" href="index.html">&lt;LowLevel<span>Blog</span>/&gt;</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-principal"
+                aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu-principal">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="artigos.html">Artigos</a></li>
+            <li class="nav-item"><a class="nav-link" href="categorias.html">Categorias</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="ferramentas.html">Ferramentas</a></li>
+            <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="topo-pagina">
+      <div class="container">
+        <h1>Ferramentas e recursos</h1>
+        <p class="lead">
+          Ferramentas gratuitas que rodam direto no navegador, para praticar C, simular
+          microcontroladores e testar circuitos antes de montar qualquer coisa na bancada.
+        </p>
+      </div>
+    </section>
+
+    <section class="secao container">
+      <h2 class="titulo-secao">Simuladores e compiladores online</h2>
+
+      <div class="grade-cards">
+
+        <article class="card card-ferramenta">
+          <div class="card-body">
+            <span class="categoria">Linguagem C</span>
+            <h3 class="card-title">OnlineGDB — Compilador C online</h3>
+            <p class="card-text">
+              Compilador e depurador de C/C++ no navegador. Ótimo para testar a lógica do
+              programa (ponteiros, structs, operações com bits) antes de gravar o código
+              no microcontrolador, inclusive executando passo a passo com o GDB.
+            </p>
+            <a href="https://www.onlinegdb.com/online_c_compiler" target="_blank" rel="noopener" class="link-leia-mais">Acessar o OnlineGDB &rarr;</a>
+          </div>
+        </article>
+
+        <article class="card card-ferramenta">
+          <div class="card-body">
+            <span class="categoria">Microcontroladores</span>
+            <h3 class="card-title">Wokwi — Simulador de embarcados</h3>
+            <p class="card-text">
+              Simula placas como Arduino, ESP32, Raspberry Pi Pico e STM32 junto com LEDs,
+              displays e sensores. Com o ESP32 dá para simular até conexão Wi-Fi, o que
+              ajuda a testar projetos de IoT sem ter o hardware em mãos.
+            </p>
+            <a href="https://wokwi.com/" target="_blank" rel="noopener" class="link-leia-mais">Acessar o Wokwi &rarr;</a>
+          </div>
+        </article>
+
+        <article class="card card-ferramenta">
+          <div class="card-body">
+            <span class="categoria">Componentes</span>
+            <h3 class="card-title">Falstad — Simulador de circuitos</h3>
+            <p class="card-text">
+              Simulador de circuitos analógicos e digitais que mostra a corrente circulando
+              de forma animada. Ideal para entender resistores, capacitores, transistores e
+              divisores de tensão antes de ligar um componente ao microcontrolador.
+            </p>
+            <a href="https://www.falstad.com/circuit/" target="_blank" rel="noopener" class="link-leia-mais">Acessar o Falstad &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>&copy; 2026 LowLevelBlog — Hygo Rissi e Léo Sommer</p>
+      <p>Trabalho da disciplina de Programação Web — FTEC</p>
+      <p>
+        <a href="https://github.com/sommerleo/LowLevelBlog" target="_blank" rel="noopener">GitHub do projeto</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
